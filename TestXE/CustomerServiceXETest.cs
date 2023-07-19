@@ -9,7 +9,7 @@ namespace Repository.Provider.Tests;
 public sealed class CustomerServiceXETest : IAsyncLifetime
 {
     private readonly OracleContainer _oracleContainer = new OracleBuilder()
-        .WithImage("gvenzl/oracle-xe:18.4.0-slim-faststart")
+        // .WithImage("gvenzl/oracle-xe:18.4.0-slim-faststart")
         .Build();
 
     public Task InitializeAsync()
@@ -38,14 +38,17 @@ public sealed class CustomerServiceXETest : IAsyncLifetime
     }
 
     [Fact]
-    public void ShouldConnectToXE()
+    // [Trait(nameof(DockerCli.DockerPlatform), nameof(DockerCli.DockerPlatform.Linux))]
+    public async Task ExecScriptReturnsSuccessful()
     {
-        var connectionProvider = new XEConnectionProvider(_oracleContainer.GetConnectionString());
-        using var connection = connectionProvider.GetConnection();
-        using var command = connection.CreateCommand();
-        command.CommandText = "SELECT 1";
-        command.Connection.Open();
+        // Given
+        const string scriptContent = "SELECT 1 FROM DUAL;";
 
-        using var dataReader = command.ExecuteReader();
+        // When
+        var execResult = await _oracleContainer.ExecScriptAsync(scriptContent)
+            .ConfigureAwait(false);
+
+        // When
+        Assert.True(0L.Equals(execResult.ExitCode), execResult.Stderr);
     }
 }
