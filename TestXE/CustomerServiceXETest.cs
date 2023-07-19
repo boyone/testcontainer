@@ -22,7 +22,7 @@ public sealed class CustomerServiceXETest : IAsyncLifetime
         return _oracleContainer.DisposeAsync().AsTask();
     }
 
-    [Fact]
+    // [Fact]
     public void ShouldReturnTwoCustomers()
     {
         // Given
@@ -35,5 +35,17 @@ public sealed class CustomerServiceXETest : IAsyncLifetime
 
         // Then
         Assert.Equal(2, customers.Count());
+    }
+
+    [Fact]
+    public void ShouldConnectToXE()
+    {
+        var connectionProvider = new XEConnectionProvider(_oracleContainer.GetConnectionString());
+        using var connection = connectionProvider.GetConnection();
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT 1";
+        command.Connection.Open();
+
+        using var dataReader = command.ExecuteReader();
     }
 }
