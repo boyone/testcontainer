@@ -17,7 +17,7 @@ services:
     environment:
       ORACLE_RANDOM_PASSWORD: yes
       APP_USER: my_user
-      APP_USER_PASSWORD: my_password_which_I_really_should_change
+      APP_USER_PASSWORD: my_password
     
     # Forward Oracle port
     ports:
