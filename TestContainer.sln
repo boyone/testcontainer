@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{6DDF0B6B-9F4F-4C04-B176-FDDBC220A9BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{16A2BBC6-35F2-48D6-8337-8A9E7E3ECE68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPostgresql", "TestPostgresql\TestPostgresql.csproj", "{16A2BBC6-35F2-48D6-8337-8A9E7E3ECE68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestXE", "TestXE\TestXE.csproj", "{E020C81B-3B5E-4D7D-9CE6-BBE2537E94B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 		{16A2BBC6-35F2-48D6-8337-8A9E7E3ECE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16A2BBC6-35F2-48D6-8337-8A9E7E3ECE68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16A2BBC6-35F2-48D6-8337-8A9E7E3ECE68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E020C81B-3B5E-4D7D-9CE6-BBE2537E94B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E020C81B-3B5E-4D7D-9CE6-BBE2537E94B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E020C81B-3B5E-4D7D-9CE6-BBE2537E94B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E020C81B-3B5E-4D7D-9CE6-BBE2537E94B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
