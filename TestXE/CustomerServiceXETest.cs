@@ -2,7 +2,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using DotNet.Testcontainers.Containers;
 using Testcontainers.Oracle;
-using Testcontainers.PostgreSql;
 using Xunit;
 
 namespace Repository.Provider.Tests;
