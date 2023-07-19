@@ -4,7 +4,7 @@ services:
   oracle:
     
     # Docker Hub image (feel free to change the tag "latest" to any other available one)
-    image: gvenzl/oracle-xe:latest
+    image: gvenzl/oracle-xe:18.4.0-slim-faststart
     shm_size: '2gb'
     deploy:
       resources:
@@ -15,7 +15,7 @@ services:
     
     # Provide passwords and other environment variables to container
     environment:
-      ORACLE_RANDOM_PASSWORD: true
+      ORACLE_RANDOM_PASSWORD: yes
       APP_USER: my_user
       APP_USER_PASSWORD: my_password_which_I_really_should_change
     
