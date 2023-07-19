@@ -24,8 +24,8 @@ services:
       - 1521:1521
     
     # Provide healthcheck script options for startup
-    options: >-
-      --health-cmd healthcheck.sh
-      --health-interval 10s
-      --health-timeout 5s
-      --health-retries 10
+#    options: >-
+#      --health-cmd healthcheck.sh
+#      --health-interval 10s
+#      --health-timeout 5s
+#      --health-retries 10
