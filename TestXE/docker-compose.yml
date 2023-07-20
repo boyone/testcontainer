@@ -17,8 +17,8 @@ services:
     environment:
       ORACLE_PASSWORD: syspassword
 #      ORACLE_DATABASE: MYDB
-#      APP_USER: appuser
-#      APP_USER_PASSWORD: apppassword
+      APP_USER: APPUSER
+      APP_USER_PASSWORD: apppassword
     
     # Provide startup script
     volumes:
