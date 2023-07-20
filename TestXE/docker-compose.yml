@@ -20,7 +20,11 @@ services:
       APP_USER: appuser
       APP_USER_PASSWORD: apppassword
     
-    # Forward Oracle port
+    # Provide startup script
+    volumes:
+      - ./initialDb:/container-entrypoint-startdb.d
+        
+      # Forward Oracle port
     ports:
       - 1521:1521
     

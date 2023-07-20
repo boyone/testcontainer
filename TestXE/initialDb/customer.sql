@@ -1,0 +1,8 @@
+CREATE TABLE customers (
+    id NUMBER GENERATED ALWAYS as IDENTITY(START with 1 INCREMENT by 1),
+    name VARCHAR2(50) not null
+);
+
+INSERT INTO customers(name) VALUES('John');
+INSERT INTO customers(name) VALUES('Kirk');
+INSERT INTO customers(name) VALUES('Steve');
