@@ -10,6 +10,10 @@ public sealed class CustomerServiceXETest : IAsyncLifetime
 {
     private readonly OracleContainer _oracleContainer = new OracleBuilder()
         .WithImage("gvenzl/oracle-xe:18.4.0-slim-faststart")
+        .WithEnvironment("ORACLE_PASSWORD", "syspassword")
+        .WithEnvironment("APP_USER", "APPUSER")
+        .WithEnvironment("APP_USER_PASSWORD", "apppassword")
+        .WithResourceMapping(new DirectoryInfo("../../../initialDb"), "/docker-entrypoint-initdb.d")
         .Build();
 
     public Task InitializeAsync()
@@ -22,7 +26,7 @@ public sealed class CustomerServiceXETest : IAsyncLifetime
         return _oracleContainer.DisposeAsync().AsTask();
     }
 
-    // [Fact]
+    [Fact]
     public void ShouldReturnTwoCustomers()
     {
         // Given
@@ -34,7 +38,7 @@ public sealed class CustomerServiceXETest : IAsyncLifetime
         var customers = customerService.GetCustomers();
 
         // Then
-        Assert.Equal(2, customers.Count());
+        Assert.Equal(5, customers.Count());
     }
 
     [Fact]
