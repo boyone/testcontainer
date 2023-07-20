@@ -16,9 +16,9 @@ services:
     # Provide passwords and other environment variables to container
     environment:
       ORACLE_PASSWORD: syspassword
-      ORACLE_DATABASE: MYDB
-      APP_USER: appuser
-      APP_USER_PASSWORD: apppassword
+#      ORACLE_DATABASE: MYDB
+#      APP_USER: appuser
+#      APP_USER_PASSWORD: apppassword
     
     # Provide startup script
     volumes:

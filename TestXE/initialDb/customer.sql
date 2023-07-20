@@ -9,6 +9,6 @@ INSERT INTO customers(name) VALUES('Steve');
 
 COMMIT;
 
-GRANT CONNECT, RESOURCE TO appuser;
+-- GRANT CONNECT, RESOURCE TO appuser;
 
 SELECT * from customers;
