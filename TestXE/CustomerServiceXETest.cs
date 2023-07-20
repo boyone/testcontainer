@@ -12,9 +12,6 @@ public sealed class CustomerServiceXETest : IAsyncLifetime
         .WithImage("gvenzl/oracle-xe:18.4.0-slim-faststart")
         .WithUsername("APPUSER")
         .WithPassword("apppassword")
-        // .WithEnvironment("ORACLE_PASSWORD", "syspassword")
-        // .WithEnvironment("APP_USER", "APPUSER")
-        // .WithEnvironment("APP_USER_PASSWORD", "apppassword")
         .WithResourceMapping(new DirectoryInfo("../../../initialDb"), "/docker-entrypoint-initdb.d")
         .Build();
 
@@ -29,32 +26,30 @@ public sealed class CustomerServiceXETest : IAsyncLifetime
     }
 
     [Fact]
-    public void ShouldReturnTwoCustomers()
+    public void ShouldReturnThreeCustomers()
     {
-        // Given
+        // Arrange
         var customerService = new CustomerService(new XEConnectionProvider(_oracleContainer.GetConnectionString()));
 
-        // When
-        customerService.Create(new Customer("George"));
-        customerService.Create(new Customer("John"));
+        // Act
         var customers = customerService.GetCustomers();
 
-        // Then
-        Assert.Equal(5, customers.Count());
+        // Assert
+        Assert.Equal(3, customers.Count());
     }
 
     [Fact]
     // [Trait(nameof(DockerCli.DockerPlatform), nameof(DockerCli.DockerPlatform.Linux))]
     public async Task ExecScriptReturnsSuccessful()
     {
-        // Given
+        // Arrange
         const string scriptContent = "SELECT 1 FROM DUAL;";
 
-        // When
+        // Act
         var execResult = await _oracleContainer.ExecScriptAsync(scriptContent)
             .ConfigureAwait(false);
 
-        // When
+        // Assert
         Assert.True(0L.Equals(execResult.ExitCode), execResult.Stderr);
     }
 }

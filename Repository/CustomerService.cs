@@ -9,7 +9,6 @@ public sealed class CustomerService
     public CustomerService(IDbConnectionProvider dbConnectionProvider)
     {
         _dbConnectionProvider = dbConnectionProvider;
-        CreateCustomersTable();
     }
 
     public IEnumerable<Customer> GetCustomers()

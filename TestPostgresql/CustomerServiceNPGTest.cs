@@ -27,7 +27,7 @@ public sealed class CustomerServiceNPGTest : IAsyncLifetime
     }
 
     [Fact]
-    public void ShouldReturnTwoCustomers()
+    public void ShouldReturnFourCustomers()
     {
         // Arrange
         var customerService = new CustomerService(new PostgresqlConnectionProvider(_postgres.GetConnectionString()));
