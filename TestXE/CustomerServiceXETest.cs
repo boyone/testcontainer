@@ -10,9 +10,11 @@ public sealed class CustomerServiceXETest : IAsyncLifetime
 {
     private readonly OracleContainer _oracleContainer = new OracleBuilder()
         .WithImage("gvenzl/oracle-xe:18.4.0-slim-faststart")
-        .WithEnvironment("ORACLE_PASSWORD", "syspassword")
-        .WithEnvironment("APP_USER", "APPUSER")
-        .WithEnvironment("APP_USER_PASSWORD", "apppassword")
+        .WithUsername("APPUSER")
+        .WithPassword("apppassword")
+        // .WithEnvironment("ORACLE_PASSWORD", "syspassword")
+        // .WithEnvironment("APP_USER", "APPUSER")
+        // .WithEnvironment("APP_USER_PASSWORD", "apppassword")
         .WithResourceMapping(new DirectoryInfo("../../../initialDb"), "/docker-entrypoint-initdb.d")
         .Build();
 
