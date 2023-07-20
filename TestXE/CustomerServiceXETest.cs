@@ -9,7 +9,7 @@ namespace Repository.Provider.Tests;
 public sealed class CustomerServiceXETest : IAsyncLifetime
 {
     private readonly OracleContainer _oracleContainer = new OracleBuilder()
-        // .WithImage("gvenzl/oracle-xe:18.4.0-slim-faststart")
+        .WithImage("gvenzl/oracle-xe:18.4.0-slim-faststart")
         .Build();
 
     public Task InitializeAsync()
