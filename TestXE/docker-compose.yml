@@ -15,7 +15,7 @@ services:
     
     # Provide passwords and other environment variables to container
     environment:
-      ORACLE_RANDOM_PASSWORD: yes
+      ORACLE_RANDOM_PASSWORD: 'true'
       APP_USER: my_user
       APP_USER_PASSWORD: my_password
     
