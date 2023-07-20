@@ -15,9 +15,10 @@ services:
     
     # Provide passwords and other environment variables to container
     environment:
-      ORACLE_RANDOM_PASSWORD: 'true'
-      APP_USER: my_user
-      APP_USER_PASSWORD: my_password
+      ORACLE_PASSWORD: syspassword
+      ORACLE_DATABASE: MYDB
+      APP_USER: appuser
+      APP_USER_PASSWORD: apppassword
     
     # Forward Oracle port
     ports:
