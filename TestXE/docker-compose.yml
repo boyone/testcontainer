@@ -22,7 +22,7 @@ services:
     
     # Provide startup script
     volumes:
-      - ./initialDb:/opt/oracle/scripts/startup
+      - ./initialDb:/docker-entrypoint-initdb.d
         
       # Forward Oracle port
     ports:
