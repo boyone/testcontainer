@@ -12,7 +12,7 @@ INSERT INTO customers(name) VALUES('Steve');
 COMMIT;
 
 -- GRANT CONNECT, RESOURCE TO appuser;
-GRANT ALL ON customers TO SYSTEM;
+-- GRANT ALL ON customers TO SYSTEM;
 
 
 SELECT * from customers;
